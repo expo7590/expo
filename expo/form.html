@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GenX Science Fair Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        .glow {
+            text-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff, 0 0 20px #00f7ff;
+        }
+        /* Science-themed animated atoms */
+        .atom {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid #a78bfa;
+            width: 60px;
+            height: 60px;
+            left: 30px;
+            top: 30px;
+            opacity: 0.5;
+            animation: spin-atom 6s linear infinite;
+        }
+        .atom2 {
+            border-color: #f472b6;
+            width: 40px;
+            height: 40px;
+            left: auto;
+            right: 40px;
+            top: 80px;
+            animation-duration: 8s;
+            animation-direction: reverse;
+        }
+        .atom3 {
+            border-color: #34d399;
+            width: 30px;
+            height: 30px;
+            left: 50%;
+            top: auto;
+            bottom: 40px;
+            transform: translateX(-50%);
+            animation-duration: 10s;
+        }
+        @keyframes spin-atom {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* End science animation */
+    </style>
+</head>
+<body class="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 min-h-screen flex items-center justify-center px-4">
+
+  <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-2xl">
+    
+    <!-- Animated Science Header -->
+    <div class="text-center mb-8">
+      <div class="text-4xl font-bold text-indigo-700 glow animate-float">
+        🔬✨ Science Expo 2025 ✨🔬
+      </div>
+      <p class="text-gray-600 mt-2">Register now and showcase your innovation!</p>
+    </div>
+
+    <!-- Registration Form -->
+    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
+      <input type="hidden" name="access_key" value="d12d53eb-5dfb-4a7c-b528-7f1cbab87cd5" />
+
+      <div>
+        <label class="block font-semibold text-purple-700">👤 Student Name</label>
+        <input type="text" name="name" required class="w-full mt-1 p-3 border-2 border-purple-400 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 bg-purple-50" />
+      </div>
+
+      <div>
+        <label class="block font-semibold text-purple-700">🏫 School Name</label>
+        <input type="text" name="school_name" required class="w-full mt-1 p-3 border-2 border-pink-400 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-600 bg-pink-50" />
+      </div>
+
+      <div>
+        <label class="block font-semibold text-purple-700">📚 Class</label>
+        <select name="class" required class="w-full mt-1 p-3 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 bg-yellow-50">
+          <option value="">-- Select Class --</option>
+          <option>6th Standard</option>
+          <option>7th Standard</option>
+          <option>8th Standard</option>
+          <option>9th Standard</option>
+          <option>10th Standard</option>
+          <option>11th Standard</option>
+          <option>12th Standard</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block font-semibold text-purple-700">📞 Mobile Number</label>
+        <input type="tel" name="phone" required class="w-full mt-1 p-3 border-2 border-green-400 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 bg-green-50" />
+      </div>
+
+      <div>
+        <label class="block font-semibold text-purple-700">📧 Email</label>
+        <input type="email" name="email" required class="w-full mt-1 p-3 border-2 border-blue-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-blue-50" />
+      </div>
+
+      <input type="hidden" name="redirect" value="https://web3forms.com/success">
+
+      <div class="text-center">
+        <button type="submit" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 py-3 rounded-full text-lg font-semibold shadow-lg hover:scale-105 transform transition">
+          🚀 Submit Registration
+        </button>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>
