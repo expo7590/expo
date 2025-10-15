@@ -52,14 +52,20 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        /* Marquee animation */
-        .marquee {
+        /* Fixed Marquee animation */
+        .marquee-container {
             overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+        .marquee {
+            display: inline-block;
             white-space: nowrap;
-            animation: marquee 20s linear infinite;
+            animation: marquee 25s linear infinite;
+            padding-left: 100%;
         }
         @keyframes marquee {
-            0% { transform: translateX(100%); }
+            0% { transform: translateX(0); }
             100% { transform: translateX(-100%); }
         }
     </style>
@@ -80,7 +86,7 @@
     </div>
 
     <!-- Marquee Instructions -->
-    <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-4 rounded-lg mb-6 overflow-hidden">
+    <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-4 rounded-lg mb-6 marquee-container">
       <div class="marquee">
         <span class="inline-block font-semibold text-lg">
           ⚠️ IMPORTANT: Teams must have exactly 3 members • All members must be from the same class OR any class between 6th to 12th Standard • Register as a team leader and provide team details • Don't miss the deadline! ⚠️
