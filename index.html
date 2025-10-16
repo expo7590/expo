@@ -89,7 +89,7 @@
     <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-4 rounded-lg mb-6 marquee-container">
       <div class="marquee">
         <span class="inline-block font-semibold text-lg">
-          ⚠️ IMPORTANT: Teams must have exactly 3 members • All members must be from the same class OR any class between 6th to 12th Standard • Register as a team leader and provide team details • Don't miss the deadline! ⚠️
+          ⚠️ IMPORTANT: Teams can have 1 to 3 members • Cross-class collaboration allowed • Choose Junior (Grades 6-9) or Senior (Grades 10-12) category • Register before October 30, 2025 • Don't miss the deadline! ⚠️
         </span>
       </div>
     </div>
@@ -98,9 +98,11 @@
     <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6">
       <h3 class="font-bold text-yellow-800 mb-2">📋 Registration Guidelines:</h3>
       <ul class="text-yellow-900 text-sm space-y-1">
-        <li>• Each team must have <strong>exactly 3 members</strong></li>
-        <li>• All team members should be from the <strong>same class</strong></li>
-        <li>• OR team members can be from <strong>any class between 6th to 12th Standard</strong></li>
+        <li>• Each team must have <strong>1 to 3 members</strong></li>
+        <li>• Team members can be from the <strong>same class</strong> or <strong>different classes</strong> (cross-class collaboration is allowed)</li>
+        <li>• Teams must register under one of two categories:</li>
+        <li class="ml-4">→ <strong>Junior Category</strong> – for students from Grades 6 to 9</li>
+        <li class="ml-4">→ <strong>Senior Category</strong> – for students from Grades 10 to 12</li>
         <li>• Register before <strong>October 30, 2025</strong></li>
       </ul>
     </div>
@@ -122,6 +124,15 @@
           <div>
             <label class="block font-semibold text-purple-700">🏫 School Name</label>
             <input type="text" name="school_name" required class="w-full mt-1 p-3 border-2 border-pink-400 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-600 bg-pink-50" />
+          </div>
+
+          <div>
+            <label class="block font-semibold text-purple-700">🏆 Category</label>
+            <select name="category" required class="w-full mt-1 p-3 border-2 border-red-400 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 bg-red-50">
+              <option value="">-- Select Category --</option>
+              <option>Junior Category (Grades 6-9)</option>
+              <option>Senior Category (Grades 10-12)</option>
+            </select>
           </div>
 
           <div>
@@ -152,17 +163,17 @@
 
       <!-- Team Member 2 -->
       <div class="bg-pink-50 p-4 rounded-lg border-2 border-pink-300">
-        <h3 class="font-bold text-pink-800 mb-3 text-lg">👤 Team Member 2</h3>
+        <h3 class="font-bold text-pink-800 mb-3 text-lg">👤 Team Member 2 (Optional)</h3>
         
         <div class="space-y-4">
           <div>
             <label class="block font-semibold text-purple-700">Name</label>
-            <input type="text" name="member2_name" required class="w-full mt-1 p-3 border-2 border-purple-400 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 bg-white" />
+            <input type="text" name="member2_name" class="w-full mt-1 p-3 border-2 border-purple-400 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 bg-white" />
           </div>
 
           <div>
             <label class="block font-semibold text-purple-700">📚 Class</label>
-            <select name="member2_class" required class="w-full mt-1 p-3 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 bg-white">
+            <select name="member2_class" class="w-full mt-1 p-3 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 bg-white">
               <option value="">-- Select Class --</option>
               <option>6th Standard</option>
               <option>7th Standard</option>
@@ -176,24 +187,24 @@
 
           <div>
             <label class="block font-semibold text-purple-700">📞 Mobile Number</label>
-            <input type="tel" name="member2_phone" required class="w-full mt-1 p-3 border-2 border-green-400 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 bg-white" />
+            <input type="tel" name="member2_phone" class="w-full mt-1 p-3 border-2 border-green-400 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 bg-white" />
           </div>
         </div>
       </div>
 
       <!-- Team Member 3 -->
       <div class="bg-green-50 p-4 rounded-lg border-2 border-green-300">
-        <h3 class="font-bold text-green-800 mb-3 text-lg">👤 Team Member 3</h3>
+        <h3 class="font-bold text-green-800 mb-3 text-lg">👤 Team Member 3 (Optional)</h3>
         
         <div class="space-y-4">
           <div>
             <label class="block font-semibold text-purple-700">Name</label>
-            <input type="text" name="member3_name" required class="w-full mt-1 p-3 border-2 border-purple-400 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 bg-white" />
+            <input type="text" name="member3_name" class="w-full mt-1 p-3 border-2 border-purple-400 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 bg-white" />
           </div>
 
           <div>
             <label class="block font-semibold text-purple-700">📚 Class</label>
-            <select name="member3_class" required class="w-full mt-1 p-3 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 bg-white">
+            <select name="member3_class" class="w-full mt-1 p-3 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 bg-white">
               <option value="">-- Select Class --</option>
               <option>6th Standard</option>
               <option>7th Standard</option>
@@ -207,7 +218,7 @@
 
           <div>
             <label class="block font-semibold text-purple-700">📞 Mobile Number</label>
-            <input type="tel" name="member3_phone" required class="w-full mt-1 p-3 border-2 border-green-400 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 bg-white" />
+            <input type="tel" name="member3_phone" class="w-full mt-1 p-3 border-2 border-green-400 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 bg-white" />
           </div>
         </div>
       </div>
