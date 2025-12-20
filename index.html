@@ -3,9 +3,52 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>GenX Science Fair Registration</title>
+    <title>Embedded Systems & IoT Course - Mseed Registration</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
+        body {
+            background: linear-gradient(135deg, #10b981 0%, #10b981 50%, #f7f7f7 50%, #f7f7f7 100%);
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Decorative circles matching poster */
+        .bg-decoration {
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        .circle1 {
+            width: 300px;
+            height: 300px;
+            background: #fbbf24;
+            top: -100px;
+            right: -100px;
+            animation: float-circle 6s ease-in-out infinite;
+        }
+        .circle2 {
+            width: 200px;
+            height: 200px;
+            background: #10b981;
+            bottom: -50px;
+            left: -50px;
+            animation: float-circle 8s ease-in-out infinite reverse;
+        }
+        .circle3 {
+            width: 150px;
+            height: 150px;
+            background: #fbbf24;
+            top: 50%;
+            left: 10%;
+            animation: float-circle 10s ease-in-out infinite;
+        }
+        
+        @keyframes float-circle {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.1); }
+        }
+        
         .animate-float {
             animation: float 3s ease-in-out infinite;
         }
@@ -13,46 +56,12 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-15px); }
         }
-        .glow {
-            text-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff, 0 0 20px #00f7ff;
+        
+        .glow-green {
+            text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
         }
-        /* Science-themed animated atoms */
-        .atom {
-            position: absolute;
-            border-radius: 50%;
-            border: 2px solid #a78bfa;
-            width: 60px;
-            height: 60px;
-            left: 30px;
-            top: 30px;
-            opacity: 0.5;
-            animation: spin-atom 6s linear infinite;
-        }
-        .atom2 {
-            border-color: #f472b6;
-            width: 40px;
-            height: 40px;
-            left: auto;
-            right: 40px;
-            top: 80px;
-            animation-duration: 8s;
-            animation-direction: reverse;
-        }
-        .atom3 {
-            border-color: #34d399;
-            width: 30px;
-            height: 30px;
-            left: 50%;
-            top: auto;
-            bottom: 40px;
-            transform: translateX(-50%);
-            animation-duration: 10s;
-        }
-        @keyframes spin-atom {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        /* Fixed Marquee animation */
+        
+        /* Marquee animation */
         .marquee-container {
             overflow: hidden;
             position: relative;
@@ -61,164 +70,269 @@
         .marquee {
             display: inline-block;
             white-space: nowrap;
-            animation: marquee 25s linear infinite;
+            animation: marquee 30s linear infinite;
             padding-left: 100%;
         }
         @keyframes marquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-100%); }
         }
+        
+        /* Interactive hover effects */
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.3);
+        }
+        
+        /* Logo pulse animation */
+        .logo-pulse {
+            animation: logo-pulse 2s ease-in-out infinite;
+        }
+        @keyframes logo-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Price tag animation - yellow bounce */
+        .price-bounce {
+            animation: price-bounce 1s ease-in-out infinite;
+        }
+        @keyframes price-bounce {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+        
+        /* Module cards with yellow accent */
+        .module-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.3), transparent);
+            transition: 0.5s;
+        }
+        .module-card:hover::before {
+            left: 100%;
+        }
+        .module-card:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 10px 25px rgba(251, 191, 36, 0.4);
+            border-color: #fbbf24;
+        }
+        
+        /* Green section styling */
+        .green-section {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-left: 5px solid #fbbf24;
+        }
+        
+        /* Yellow highlights */
+        .yellow-highlight {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+        }
+        
+        /* Input glow effects */
+        .glow-input:focus {
+            box-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
+            border-color: #fbbf24;
+        }
+        
+        /* Button gradient matching poster */
+        .cta-button {
+            background: linear-gradient(135deg, #10b981 0%, #fbbf24 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        /* Number badges with yellow */
+        .number-badge {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);
+        }
     </style>
 </head>
-<body class="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 min-h-screen flex items-center justify-center px-4 py-8">
+<body class="min-h-screen flex items-center justify-center px-4 py-8">
 
-  <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-2xl">
+  <!-- Background decorative circles -->
+  <div class="bg-decoration circle1"></div>
+  <div class="bg-decoration circle2"></div>
+  <div class="bg-decoration circle3"></div>
+
+  <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-2xl hover-lift relative z-10">
     
-    <!-- Animated Science Header -->
+    <!-- Mseed Logo & Header -->
     <div class="text-center mb-6">
-      <div class="text-4xl font-bold text-indigo-700 glow animate-float">
-        🔬✨ Science Expo 2025 ✨🔬
+      <div class="flex justify-center mb-4">
+        <img src="https://i.postimg.cc/NG8LQsHv/image.png" 
+             alt="Mseed Logo" 
+             class="h-20 logo-pulse object-contain" 
+             style="max-width: 400px;" />
       </div>
-      <p class="text-gray-600 mt-2">Register now and showcase your innovation!</p>
-    <div class="mt-3 bg-red-100 border-2 border-red-400 rounded-lg px-4 py-2">
-        <p class="text-red-700 font-bold">⏰ Registration Ends: November 18, 2025</p>
+      
+      <div class="text-4xl font-bold text-green-600 glow-green animate-float">
+        EMBEDDED SYSTEMS & IoT COURSE
+      </div>
+      <p class="text-gray-600 mt-2 text-lg font-semibold">Hands-on | Industry-Oriented | Beginner Friendly</p>
+      <div class="w-24 h-1 yellow-highlight mx-auto mt-2"></div>
+      
+      <div class="mt-4 yellow-highlight text-white px-8 py-4 rounded-lg inline-block price-bounce shadow-xl">
+        <p class="font-black text-4xl" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">₹499</p>
+        <p class="font-bold text-xl">ONLY</p>
+      </div>
+      
+      <div class="mt-3 flex items-center justify-center gap-4 text-gray-700">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">⏰</span>
+          <span class="font-semibold">Duration: 30 Hours</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">📅</span>
+          <span class="font-semibold">Batch Starts: 26 DEC 2025</span>
+        </div>
+      </div>
+      <p class="text-green-600 font-semibold mt-2">Certificate Provided | Practical Training</p>
+    </div>
+
+    <!-- Course Modules Display with Numbers -->
+    <div class="bg-gradient-to-br from-green-50 to-yellow-50 p-6 rounded-lg mb-6 border-2 border-green-300 hover-lift">
+      <h3 class="font-bold text-green-700 mb-4 text-center text-xl">📚 Course Modules</h3>
+      <div class="space-y-3">
+        <div class="module-card bg-white p-4 rounded-lg border-2 border-green-200 flex items-center gap-4">
+          <div class="number-badge">01</div>
+          <div>
+            <div class="text-xl font-bold text-green-700">Sensors & Actuators</div>
+            <p class="text-sm text-gray-600">Learn interfacing and control mechanisms</p>
+          </div>
+        </div>
+        <div class="module-card bg-white p-4 rounded-lg border-2 border-green-200 flex items-center gap-4">
+          <div class="number-badge">02</div>
+          <div>
+            <div class="text-xl font-bold text-green-700">Microcontrollers</div>
+            <p class="text-sm text-gray-600">Master Arduino, ESP32 programming</p>
+          </div>
+        </div>
+        <div class="module-card bg-white p-4 rounded-lg border-2 border-green-200 flex items-center gap-4">
+          <div class="number-badge">03</div>
+          <div>
+            <div class="text-xl font-bold text-green-700">Embedded C Basics</div>
+            <p class="text-sm text-gray-600">Core programming fundamentals</p>
+          </div>
+        </div>
+        <div class="module-card bg-white p-4 rounded-lg border-2 border-green-200 flex items-center gap-4">
+          <div class="number-badge">04</div>
+          <div>
+            <div class="text-xl font-bold text-green-700">Real-Time Projects</div>
+            <p class="text-sm text-gray-600">Build industry-standard applications</p>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Marquee Instructions -->
-    <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-4 rounded-lg mb-6 marquee-container">
+    <div class="green-section text-white py-3 px-4 rounded-lg mb-6 marquee-container shadow-lg">
       <div class="marquee">
         <span class="inline-block font-semibold text-lg">
-          ⚠️ IMPORTANT: Teams can have 1 to 3 members • Cross-class collaboration allowed • Choose Junior (Grades 6-9) or Senior (Grades 10-12) category • Register before October 30, 2025 • Don't miss the deadline! ⚠️
+          🎓 Certificate Provided | ⚡ Practical Training | 🛠️ Real Hardware Projects | 💡 Industry Experts | 🎯 Job-Ready Skills | 📱 IoT Applications | Limited Seats - Register Now! 🎓
         </span>
       </div>
-    </div>
-
-    <!-- Instructions Box -->
-    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6">
-      <h3 class="font-bold text-yellow-800 mb-2">📋 Registration Guidelines:</h3>
-      <ul class="text-yellow-900 text-sm space-y-1">
-        <li>• Each team must have <strong>1 to 3 members</strong></li>
-        <li>• Team members can be from the <strong>same class</strong> or <strong>different classes</strong> (cross-class collaboration is allowed)</li>
-        <li>• Teams must register under one of two categories:</li>
-        <li class="ml-4">→ <strong>Junior Category</strong> – for students from Grades 6 to 9</li>
-        <li class="ml-4">→ <strong>Senior Category</strong> – for students from Grades 10 to 12</li>
-        <li>• Register before <strong>November 18, 2025</strong></li>
-      </ul>
     </div>
 
     <!-- Registration Form -->
     <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
       <input type="hidden" name="access_key" value="d12d53eb-5dfb-4a7c-b528-7f1cbab87cd5" />
+      <input type="hidden" name="subject" value="New Embedded Systems Course Registration" />
 
-      <!-- Team Leader Section -->
-      <div class="bg-indigo-50 p-4 rounded-lg border-2 border-indigo-300">
-        <h3 class="font-bold text-indigo-800 mb-3 text-lg">👥 Team Leader Information</h3>
+      <!-- Student Information -->
+      <div class="bg-gradient-to-br from-green-50 to-white p-5 rounded-lg border-2 border-green-300 hover-lift">
+        <h3 class="font-bold text-green-700 mb-4 text-lg flex items-center gap-2">
+          <span class="yellow-highlight text-white px-3 py-1 rounded-full text-sm">STEP 1</span>
+          👤 Student Information
+        </h3>
         
         <div class="space-y-4">
           <div>
-            <label class="block font-semibold text-purple-700">👤 Team Leader Name</label>
-            <input type="text" name="team_leader_name" required class="w-full mt-1 p-3 border-2 border-purple-400 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 bg-purple-50" />
+            <label class="block font-semibold text-green-700 mb-1">👤 Full Name</label>
+            <input type="text" name="student_name" required class="glow-input w-full p-3 border-2 border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-white transition" placeholder="Enter your full name" />
           </div>
 
           <div>
-            <label class="block font-semibold text-purple-700">🏫 School Name</label>
-            <input type="text" name="school_name" required class="w-full mt-1 p-3 border-2 border-pink-400 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-600 bg-pink-50" />
+            <label class="block font-semibold text-green-700 mb-1">📧 Email Address</label>
+            <input type="email" name="student_email" required class="glow-input w-full p-3 border-2 border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-white transition" placeholder="your.email@example.com" />
           </div>
 
           <div>
-            <label class="block font-semibold text-purple-700">🏆 Category</label>
-            <select name="category" required class="w-full mt-1 p-3 border-2 border-red-400 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 bg-red-50">
-              <option value="">-- Select Category --</option>
-              <option>Junior Category (Grades 6-9)</option>
-              <option>Senior Category (Grades 10-12)</option>
+            <label class="block font-semibold text-green-700 mb-1">📞 Mobile Number</label>
+            <input type="tel" name="student_phone" required pattern="[0-9]{10}" class="glow-input w-full p-3 border-2 border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-white transition" placeholder="10-digit mobile number" />
+          </div>
+
+          <div>
+            <label class="block font-semibold text-green-700 mb-1">🎓 Educational Qualification</label>
+            <select name="qualification" required class="glow-input w-full p-3 border-2 border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-white transition">
+              <option value="">-- Select Qualification --</option>
+              <option>High School Student</option>
+              <option>Diploma Student</option>
+              <option>Engineering Student</option>
+              <option>Graduate</option>
+              <option>Working Professional</option>
+              <option>Other</option>
             </select>
           </div>
 
           <div>
-            <label class="block font-semibold text-purple-700">📚 Class</label>
-            <select name="team_leader_class" required class="w-full mt-1 p-3 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 bg-yellow-50">
-              <option value="">-- Select Class --</option>
-              <option>6th Standard</option>
-              <option>7th Standard</option>
-              <option>8th Standard</option>
-              <option>9th Standard</option>
-              <option>10th Standard</option>
-              <option>11th Standard</option>
-              <option>12th Standard</option>
+            <label class="block font-semibold text-green-700 mb-1">🏫 College/Institution (if applicable)</label>
+            <input type="text" name="institution" class="glow-input w-full p-3 border-2 border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-white transition" placeholder="Your college/school name" />
+          </div>
+
+          <div>
+            <label class="block font-semibold text-green-700 mb-1">💡 Why do you want to join this course?</label>
+            <textarea name="reason" rows="3" class="glow-input w-full p-3 border-2 border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-white transition" placeholder="Tell us your motivation..."></textarea>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-green-700 mb-1">🖥️ Prior Programming Experience?</label>
+            <select name="experience" class="glow-input w-full p-3 border-2 border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-white transition">
+              <option value="">-- Select Experience Level --</option>
+              <option>No Experience</option>
+              <option>Basic (Beginner)</option>
+              <option>Intermediate</option>
+              <option>Advanced</option>
             </select>
-          </div>
-
-          <div>
-            <label class="block font-semibold text-purple-700">📞 Mobile Number</label>
-            <input type="tel" name="team_leader_phone" required class="w-full mt-1 p-3 border-2 border-green-400 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 bg-green-50" />
-          </div>
-
-          <div>
-            <label class="block font-semibold text-purple-700">📧 Email</label>
-            <input type="email" name="team_leader_email" required class="w-full mt-1 p-3 border-2 border-blue-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-blue-50" />
-          </div>
-        </div>
-      </div>
-
-      <!-- Team Member 2 -->
-      <div class="bg-pink-50 p-4 rounded-lg border-2 border-pink-300">
-        <h3 class="font-bold text-pink-800 mb-3 text-lg">👤 Team Member 2 (Optional)</h3>
-        
-        <div class="space-y-4">
-          <div>
-            <label class="block font-semibold text-purple-700">Name</label>
-            <input type="text" name="member2_name" class="w-full mt-1 p-3 border-2 border-purple-400 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 bg-white" />
-          </div>
-
-          <div>
-            <label class="block font-semibold text-purple-700">📚 Class</label>
-            <select name="member2_class" class="w-full mt-1 p-3 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 bg-white">
-              <option value="">-- Select Class --</option>
-              <option>6th Standard</option>
-              <option>7th Standard</option>
-              <option>8th Standard</option>
-              <option>9th Standard</option>
-              <option>10th Standard</option>
-              <option>11th Standard</option>
-              <option>12th Standard</option>
-            </select>
-          </div>
-
-          <div>
-            <label class="block font-semibold text-purple-700">📞 Mobile Number</label>
-            <input type="tel" name="member2_phone" class="w-full mt-1 p-3 border-2 border-green-400 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 bg-white" />
-          </div>
-        </div>
-      </div>
-
-      <!-- Team Member 3 -->
-      <div class="bg-green-50 p-4 rounded-lg border-2 border-green-300">
-        <h3 class="font-bold text-green-800 mb-3 text-lg">👤 Team Member 3 (Optional)</h3>
-        
-        <div class="space-y-4">
-          <div>
-            <label class="block font-semibold text-purple-700">Name</label>
-            <input type="text" name="member3_name" class="w-full mt-1 p-3 border-2 border-purple-400 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 bg-white" />
-          </div>
-
-          <div>
-            <label class="block font-semibold text-purple-700">📚 Class</label>
-            <select name="member3_class" class="w-full mt-1 p-3 border-2 border-yellow-400 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 bg-white">
-              <option value="">-- Select Class --</option>
-              <option>6th Standard</option>
-              <option>7th Standard</option>
-              <option>8th Standard</option>
-              <option>9th Standard</option>
-              <option>10th Standard</option>
-              <option>11th Standard</option>
-              <option>12th Standard</option>
-            </select>
-          </div>
-
-          <div>
-            <label class="block font-semibold text-purple-700">📞 Mobile Number</label>
-            <input type="tel" name="member3_phone" class="w-full mt-1 p-3 border-2 border-green-400 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 bg-white" />
           </div>
         </div>
       </div>
@@ -226,14 +340,21 @@
       <input type="hidden" name="redirect" value="https://web3forms.com/success">
 
       <div class="text-center">
-        <button type="submit" class="bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:scale-105 transform transition">
-          🚀 Submit Team Registration
+        <button type="submit" class="cta-button text-white px-12 py-5 rounded-full text-xl font-black shadow-2xl hover:scale-110 transform transition duration-300 relative">
+          <span class="relative z-10">🚀 ENROLL NOW</span>
         </button>
+        <p class="text-gray-600 mt-4 font-semibold text-lg">📞 Contact: +91 93615 31764</p>
       </div>
     </form>
+
+    <!-- Footer -->
+    <div class="mt-8 text-center">
+      <div class="inline-block bg-gradient-to-r from-green-100 to-yellow-100 px-6 py-3 rounded-lg border-2 border-green-200">
+        <p class="text-green-700 font-bold">🌱 Powered by Mseed</p>
+        <p class="text-gray-600 text-sm">A unit of Mechnido</p>
+      </div>
+    </div>
   </div>
 
 </body>
 </html>
-
-
